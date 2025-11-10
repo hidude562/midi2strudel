@@ -11,12 +11,15 @@ def test_pattern(pattern_str):
     unwrapped = parsed.unwrap()
     print(f"Unwrapped: {unwrapped}")
 
-    elements = unwrapped.flatten_to_elements()
-    print(f"Elements: {' '.join([f'{v}@{d}' for v, d in elements])}")
-    print()
+    #elements = unwrapped.flatten_to_elements()
+    #print(f"Elements: {' '.join([f'{v}@{d}' for v, d in elements])}")
+    #print()
 
+parsed = parse_pattern("<[0 1]*2>")
+print(f"Parsed: {parsed}")
 
 # Example usage and testing
+"""
 if __name__ == "__main__":
     print("=== Automated Tests ===\n")
 
@@ -108,3 +111,4 @@ if __name__ == "__main__":
 
     # Calculate normalized durations
     print(f"With durations: {' '.join([f'{v}@{d:.5f}' for v, d in final.flatten_to_elements()])}")
+"""

@@ -1,7 +1,8 @@
 from expression import MultiplierExpression, AngleExpression, Expression, BracketExpression
 
-
-class Parser:
+# Shitty parser that can only parse basic things
+# TODO:
+class BasicParser:
     """Parse Strudel pattern strings into Expression objects."""
 
     def __init__(self, text):
@@ -53,7 +54,7 @@ class Parser:
             self.consume()  # consume '@'
             self.skip_whitespace()
             duration = self.parse_number()
-            expr.duration_modifier = duration
+            expr.length = duration
         return expr
 
     def parse_element(self):
@@ -116,9 +117,10 @@ class Parser:
         """Parse *n multiplier."""
         self.consume()  # consume '*'
         multiplier_value = self.parse_number()
+        #print('mult', pattern)
 
         mult = MultiplierExpression()
-        mult.pattern = pattern
+        mult.value = [pattern]
         mult.multiplier = multiplier_value
 
         return mult
@@ -131,5 +133,5 @@ class Parser:
 
 def parse_pattern(text):
     """Parse a Strudel pattern string into Expression objects."""
-    parser = Parser(text)
+    parser = BasicParser(text)
     return parser.parse()
