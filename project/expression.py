@@ -61,7 +61,7 @@ class BracketExpression(Expression):
 
 class MultiplierExpression(Expression):
     start_char = ""
-    
+
     # End char in inner_value_repr
     end_char = ""
 
